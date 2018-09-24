@@ -1,0 +1,64 @@
+<div>
+    <form>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <input type="text" class="form-control" name="descricao" id="descricao" ng-model="infracao.descricao" placeholder="Digite a Descrição">
+        </div>
+       
+        <div class="form-group">
+            <label for="natureza">Natureza</label>
+            <select class="form-control" id="natureza" ng-model="infracao.natureza">
+                    <option value="LEVE">Leve</option>
+                    <option value="MEDIA">Média</option>
+                    <option value="GRAVE">Grave</option>
+                    <option value="GRAVISSIMA">Gravíssima</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tipoInfrator">Tipo Infrator</label>
+            <div class="form-check">
+                <input class="form-check-input" ng-model="infracao.tipoInfrator" type="radio" name="tipoInfrator" id="tipoInfratorC" value="C"
+                    checked>
+                <label class="form-check-label" for="tipoInfratorC">
+                   Condutor
+            </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" ng-model="infracao.tipoInfrator" type="radio" name="tipoInfrator" id="tipoInfratorP" value="P"
+                    checked>
+                <label class="form-check-label" for="tipoInfratorP">
+                   Proprietario
+                     </label>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="competencia">Competência</label>
+            <div class="form-check">
+                <input class="form-check-input" ng-model="infracao.competencia" type="radio" name="competencia" id="competenciaE" value="E"
+                    >
+                <label class="form-check-label" for="competenciaE">
+                  Estadual
+            </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" ng-model="infracao.competencia" type="radio" name="competencia" id="competenciaM" value="M"
+                    >
+                <label class="form-check-label" for="competenciaM">
+                  Municipal
+            </label>
+        </div>
+</div>
+
+<div class="form-group">
+    <label for="multiplicador">Multiplicador</label>
+    <input type="number" class="form-control" name="multiplicador" id="multiplicador" ng-model="infracao.multiplicador" placeholder="Digite a Descrição">
+</div>
+
+
+
+<button type="submit" class="btn btn-primary" ng-click="salvar(infracao)">Salvar</button>
+ <a class="btn btn-primary" ng-href="#/infracao">Voltar</a>
+</form>
+</div>

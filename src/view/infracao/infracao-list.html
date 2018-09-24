@@ -1,0 +1,47 @@
+<div>
+    <h1 class="h2">Infrações</h1>
+
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Filtrar:</label>
+            <input type="text" class="form-control" ng-model="filtro" id="filtro" placeholder="Filtrar">
+        </div>
+        
+
+    </form>
+
+    <a class="btn btn-primary" ng-href="#/infracao/form">Nova Infração</a>
+
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Natureza</th>
+                <th>Multiplicador</th>
+                <th>Tipo de Infrator</th>
+                <th>Ação</th>
+            </tr>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-class="{'infracao-gravissima': infracao.natureza === 'GRAVISSIMA'}" ng-repeat="infracao in infracoes | filter: {'descricao' : filtro } | orderBy:'multiplicador':true">
+                <td>{{infracao.id}}</td>
+                <td>{{infracao.descricao | uppercase}}</td>
+                <td>
+                    {{infracao.natureza}}
+                </td>
+                <td>{{infracao.multiplicador | currency}}</td>
+                <td>{{infracao.tipoInfrator | tipoInfrator }}</td>
+                <td>
+                    <button ng-click="remover(infracao);">Remover</button>
+
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

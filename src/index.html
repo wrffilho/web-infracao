@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <a class="navbar-brand" href="#">Infrações WEB</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" ng-href="#/infracao">Infrações <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" ng-href="#/municipio">Município</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"  ng-href="#/veiculo">Veículos</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container-fluid" style="margin-top: 100px">
+
+        <div ng-view>
+            
+        </div>
+
+    </main>
+
+
+
+    <!-- Libs -->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+
+    <!-- End Libs-->
+
+    <!-- App -->
+    <script src="js/main.js"></script>
+    <script src="js/config/constants.js"></script>
+    <script src="js/controller/infracao-ctrl.js"></script>
+    <script src="js/controller/infracao-form-ctrl.js"></script>
+    <script src="js/service/infracao-service.js"></script>
+    <script src="js/filter/tipoInfrator-filter.js"></script>
+    <!-- End App-->
+</body>
+
+</html>
