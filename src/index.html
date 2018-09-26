@@ -5,8 +5,10 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -19,7 +21,9 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item active">
-                        <a class="nav-link" ng-href="#/infracao">Infrações <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" ng-href="#/infracao">Infrações
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
 
                     <li class="nav-item">
@@ -27,7 +31,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"  ng-href="#/veiculo">Veículos</a>
+                        <a class="nav-link" ng-href="#/veiculo">Veículos</a>
                     </li>
 
 
@@ -40,7 +44,7 @@
     <main class="container-fluid" style="margin-top: 100px">
 
         <div ng-view>
-            
+
         </div>
 
     </main>
@@ -50,6 +54,8 @@
     <!-- Libs -->
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../node_modules/angular-messages/angular-messages.js"></script>
+    <script src="../node_modules/ui-bootstrap4/dist/ui-bootstrap.js"></script>
 
     <!-- End Libs-->
 

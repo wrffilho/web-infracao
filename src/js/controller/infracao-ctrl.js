@@ -7,7 +7,7 @@ angular.module('mainApp')
             InfracaoService.listar().then(
                 function (response) {
 
-                    $scope.infracoes = response.data;
+                   $scope.infracoes = response.data;
                 }, function (error) {
                     console.log(error);
                 });
@@ -19,12 +19,11 @@ angular.module('mainApp')
                 function (response) {
                     var retorno = response.data;
                     listar();
-                    alert(retorno.msg);
+                    alert(retorno.mensagem);
                 }, function (error) {
                     console.log(error);
                 });
-
-        };
+       };
 
 
 

@@ -8,19 +8,27 @@ angular.module("mainApp").factory("InfracaoService",function($http, constants){
     }
 
     function remover(id) {
-        return  $http.delete(BASE_URL+'/'+infracao.id);
+        return  $http.delete(BASE_URL+'/'+id);
     }
 
     function buscarPorId(id) {
-        return  $http.get(BASE_URL+'/'+infracao.id);
+        return  $http.get(BASE_URL+'/'+id);
     }
 
     function salvar(infracao) {
         return  $http.post(BASE_URL,infracao);
     }
 
-    function atualizar(id,infracao) {
+    function atualizar(infracao) {
         return $http.put(BASE_URL+'/'+infracao.id,infracao);
+    }
+
+    function salvarOuAtualizar(infracao) {
+        if (infracao.id) {
+            return atualizar(infracao);
+        } else {
+            return salvar(infracao);
+        }
     }
 
     return {
@@ -28,7 +36,8 @@ angular.module("mainApp").factory("InfracaoService",function($http, constants){
         remover: remover,
         salvar: salvar,
         atualizar: atualizar,
-        buscarPorId: buscarPorId
+        buscarPorId: buscarPorId,
+        salvarOuAtualizar: salvarOuAtualizar
     };
 
 });
