@@ -4,3 +4,11 @@
     color: white;
     font-weight: bold;
 }
+
+.btn{
+    margin-bottom: 1px
+}
+
+.alert{
+    margin-top: 5px
+}
