@@ -27,7 +27,7 @@ angular.module('mainApp')
 
         }
 
-        $scope.remover = function (veiculo) {
+        $scope.removerVeiculo = function (veiculo) {
             var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover o veículo?');                       
 
             dlg.result.then(function(){
@@ -36,7 +36,7 @@ angular.module('mainApp')
 
         };
 
-        $scope.apagarVeiculos = function (veiculos) {
+        $scope.removerVeiculos = function (veiculos) {
             if(veiculos.length>1){
                 var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover os veículos selecionados?');  
             }else{

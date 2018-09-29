@@ -1,4 +1,8 @@
-<div>
+<div class="container">
+
+    <h1 class="h2" ng-hide="veiculo.id">Cadastro de Veículo</h1>
+    <h1 class="h2" ng-show="veiculo.id">Edição de Veículo</h1>
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -76,23 +80,21 @@
                 <div ng-show="veiculoForm.anoModelo.$dirty" ng-messages="veiculoForm.anoModelo.$error">
                     <div ng-message="required" class="alert alert-danger">Preencha o ano do veículo!</div>
                     <div ng-message="maxlength" class="alert alert-danger">O ano deve ter somente 4 digitos numéricos:
-                        EX:2018</div>
+                        EX:2018
+                    </div>
                     <div ng-message="pattern" class="alert alert-danger">O ano deve ter somente 4 digitos numéricos:
-                        EX:2018!</div>
+                        EX:2018!
+                    </div>
                 </div>
             </div>
-
         </div>
 
-
-
-
-
-
+    </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" ng-click="salvar(veiculoForm, veiculo)" ng-disabled="veiculoForm.$invalid"
+            ng-hide="veiculo.id"> <i class="fas fa-save"></i> Salvar</button>
+        <button type="submit" class="btn btn-primary" ng-click="salvar(veiculoForm, veiculo)" ng-disabled="veiculoForm.$invalid"
+            ng-show="veiculo.id"><i class="far fa-edit"></i> Atualizar dados</button>
+        <a class="btn btn-primary" ng-href="#/veiculo"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
+    </div>
 </div>
-</form>
-<button type="submit" class="btn btn-primary" ng-click="salvar(veiculoForm, veiculo)" ng-disabled="veiculoForm.$invalid"
-    ng-hide="veiculo.id">Salvar</button>
-<button type="submit" class="btn btn-primary" ng-click="salvar(veiculoForm, veiculo)" ng-disabled="veiculoForm.$invalid"
-    ng-show="veiculo.id">Atualizar dados</button>
-<a class="btn btn-primary" ng-href="#/veiculo">Voltar</a>

@@ -7,10 +7,6 @@ angular.module('mainApp')
             }
         }
 
-        $scope.abrirModal=function(){
-            
-        }
-
         function limparCampos(form, veiculo){
             if(!veiculo.id){
                 $scope.veiculo = {};

@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h1 class="h2">Veículos</h1>
 
     <nav aria-label="breadcrumb">
@@ -20,9 +20,9 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-danger" ng-click="apagarVeiculos(veiculos)" ng-show="isSelected">
+        <a class="btn btn-danger" ng-click="removerVeiculos(veiculos)" ng-show="isSelected">
             <i class="fas fa-trash-alt"></i> Apagar Veículos</a>
-        <table class="table table-striped">
+        <table class="table table-hover table-striped">
             <thead class="thead-dark">
                 <tr>
                     <th></th>
@@ -32,7 +32,7 @@
                     <th>Placa</th>
                     <th>Renavam</th>
                     <th>Ano</th>
-                    <th>Acões</th>
+                    <th style="text-align: center">Acões</th>
 
                 </tr>
                 </tr>
@@ -47,7 +47,8 @@
                     <td>{{veiculo.placa}}</td>
                     <td>{{veiculo.renavam}}</td>
                     <td>{{veiculo.anoModelo}}</td>
-                    <td><a class="btn btn-primary" ng-href="#/veiculo/form/{{veiculo.id}}"><i class="fal fa-edit">Atualizar</i></a></td>
+                    <td style="text-align: center"><a class="btn btn-primary" ng-href="#/veiculo/form/{{veiculo.id}}"><i class="far fa-edit"></i> </a>
+                        <a  class="btn btn-danger" ng-click="removerVeiculo(veiculo)"><i class="fas fa-trash-alt"></i> </a></td>
                 </tr>
                 <div>
             </tbody>
