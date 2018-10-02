@@ -1,4 +1,4 @@
-angular.module("mainApp").factory("dialogs",function($uibModal){   
+angular.module("mainApp").factory("dialogsResposta",function($uibModal){   
 
     function confirm(titulo, texto) {
 
@@ -6,15 +6,14 @@ angular.module("mainApp").factory("dialogs",function($uibModal){
             animation: true,
             ariaLabelledBy: 'modal-title-top',
             ariaDescribedBy: 'modal-body-top',
-            templateUrl: 'view/modal/modal.html',
-            controller: 'ConfirmDialogCtrl',
+            templateUrl: 'view/modal/modal-resposta.html',
+            controller: 'RespostaDialogCtrl',
             size: 'sm',
             resolve: {
                 config: {
                     titulo: titulo,
                     texto: texto ,
-                    labelBtnOk: 'Sim',
-                    labelCancel: 'Não'
+                    labelBtnOk: 'Ok',
                 }
                 
             }

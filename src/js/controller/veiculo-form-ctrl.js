@@ -1,5 +1,5 @@
 angular.module('mainApp')
-    .controller('VeiculoFormCtrl', function ($scope, VeiculoService, veiculo,$location) {
+    .controller('VeiculoFormCtrl', function ($scope, VeiculoService, veiculo,$location, dialogsResposta) {
 
         function init(){
             if(veiculo!=null){
@@ -24,7 +24,9 @@ angular.module('mainApp')
                         }else{                           
                             limparCampos(form,veiculo);
                         }
-                        alert(retorno.mensagem);
+
+                        dialogsResposta.confirm('Confirmação',retorno.mensagem);
+                       
                     }, function (error) {
 
                         if(error.data.mensagem)  {
@@ -33,6 +35,8 @@ angular.module('mainApp')
                         console.log(error);
                     });
         };
+
+       
         init();
     });
     

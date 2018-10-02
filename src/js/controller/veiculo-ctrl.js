@@ -96,6 +96,9 @@ angular.module('mainApp')
             console.log(vs);
         }*/
 
-
+        $scope.ordenarPor=function(campo){            
+            $scope.criterio = campo;
+            $scope.direcao = !$scope.direcao;
+        }
         listar();
     });
