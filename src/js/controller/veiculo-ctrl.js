@@ -1,5 +1,5 @@
 angular.module('mainApp')
-    .controller('VeiculoCtrl', function ($scope, VeiculoService, dialogs) {
+    .controller('VeiculoCtrl', function ($scope, VeiculoService, dialogs, $sce) {
         $scope.isSelected = false;
         function listar() {
 
@@ -28,7 +28,7 @@ angular.module('mainApp')
         }
 
         $scope.removerVeiculo = function (veiculo) {
-            var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover o veículo?');                       
+            var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover o veículo?');                               
 
             dlg.result.then(function(){
                  removerDefinitivo(veiculo);
@@ -55,7 +55,9 @@ angular.module('mainApp')
             }).map(function (veiculo) {
                 return veiculo.id;
             });
-            VeiculoService.deletarVeiculos(selecionados).then(function (response) {
+
+            VeiculoService.deletarVeiculos(selecionados).then(
+                function (response) {
                 var retorno = response.data;
                 listar();
                 $scope.isSelected = false;
@@ -100,5 +102,7 @@ angular.module('mainApp')
             $scope.criterio = campo;
             $scope.direcao = !$scope.direcao;
         }
+
+        $scope.htmlPopover = $sce.trustAsHtml('<img src="view/popoverTeste/imagens/noruega.jpg" class="img-thumbnail">');
         listar();
     });
