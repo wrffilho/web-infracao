@@ -14,47 +14,19 @@ angular.module('mainApp')
             form.$setPristine();
           }
 
-        function converterImagem(imagem, veiculo){
-           return Upload.base64DataUrl(imagem)
-            .then(function (value){
-                console.log(value)
-                return value;     
-            }, function(error){
-                console.log(error);
-                return error;
-                
-            }
-        )            
-        }
-
         $scope.converter = function(){
-            alert("OK");
-            return foto;
-            var foto = Upload.base64DataUrl($scope.picFile)
+           Upload.base64DataUrl($scope.picFile)
             .then(function (value){
+                $scope.veiculo.foto = value;
                 console.log(value)
                 return value;     
             }, function(error){
                 console.log(error);
-                return error;
-                
-            }
-        )         
-            
-        }
+                return error;  
+            })}
 
-        $scope.salvar = function (form, veiculo, imagem) {
-
-       
-              converterImagem(imagem).then(function(foto){
-                  veiculo.foto = foto;
-                  console.log("VEICULO->>>.>>>>>> "+veiculo);
-                  alert("Salvando: " + veiculo.foto);
-              });               
-           
-
-           
-            /*VeiculoService.salvar(veiculo)            
+        $scope.salvar = function (form, veiculo) {           
+            VeiculoService.salvar(veiculo)            
                 .then(function (response) {
                         var retorno = response.data;
                         if(veiculo.id){
@@ -71,7 +43,7 @@ angular.module('mainApp')
                             alert(error.data.mensagem);
                         }
                         console.log(error);
-                    });*/
+                    });
         };       
         init();
     });
