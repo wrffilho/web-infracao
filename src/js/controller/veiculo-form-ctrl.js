@@ -1,5 +1,5 @@
 angular.module('mainApp')
-    .controller('VeiculoFormCtrl', function ($scope, VeiculoService, veiculo,$location, dialogsResposta) {
+    .controller('VeiculoFormCtrl', function ($scope, VeiculoService, veiculo,$location, dialogsResposta, Upload) {
 
         function init(){
             if(veiculo!=null){
@@ -14,10 +14,20 @@ angular.module('mainApp')
             form.$setPristine();
           }
 
-        $scope.salvar = function (form, veiculo) {
-            VeiculoService.salvar(veiculo)
-                .then(
-                    function (response) {
+        $scope.converter = function(){
+           Upload.base64DataUrl($scope.picFile)
+            .then(function (value){
+                $scope.veiculo.foto = value;
+                console.log(value)
+                return value;     
+            }, function(error){
+                console.log(error);
+                return error;  
+            })}
+
+        $scope.salvar = function (form, veiculo) {           
+            VeiculoService.salvar(veiculo)            
+                .then(function (response) {
                         var retorno = response.data;
                         if(veiculo.id){
                             $location.path('/veiculo');
@@ -34,9 +44,7 @@ angular.module('mainApp')
                         }
                         console.log(error);
                     });
-        };
-
-       
+        };       
         init();
     });
     

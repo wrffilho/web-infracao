@@ -1,4 +1,4 @@
-angular.module('mainApp', ['ngRoute', 'ngMessages', 'ui.bootstrap']);
+angular.module('mainApp', ['ngRoute', 'ngMessages', 'ui.bootstrap', 'ngSanitize', 'ngFileUpload']);
 
 
 //Configuração das rotas
@@ -62,6 +62,27 @@ angular.module('mainApp').config(function ($routeProvider) {
 			templateUrl: 'view/modal/btModal.html',
 			controller: "InfracaoCtrl",
 		})
+
+		.when('/modalTeste', {
+			templateUrl: 'view/modalTeste/modal.html',
+			controller: "InfracaoCtrl",
+		})
+
+		.when('/modalTeste', {
+			templateUrl: 'view/modalTeste/modal.html',
+			controller: "InfracaoCtrl",
+		})
+
+		.when('/popoverTeste', {
+			templateUrl: 'view/popoverTeste/popover.html',
+			controller: "PopoverDemoCtrl",
+		})
+
+		.when('/uploadImagesTeste', {
+			templateUrl: 'view/uploadImagesTeste/uploadImgTeste.html',
+			controller: "MyCtrl",
+		})
+
 
 		.otherwise({
 			redirectTo: '/home'

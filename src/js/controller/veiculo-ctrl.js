@@ -1,6 +1,7 @@
 angular.module('mainApp')
     .controller('VeiculoCtrl', function ($scope, VeiculoService, dialogs) {
         $scope.isSelected = false;
+        //$scope.lista=false;
         function listar() {
 
             VeiculoService.listar().then(
@@ -28,7 +29,7 @@ angular.module('mainApp')
         }
 
         $scope.removerVeiculo = function (veiculo) {
-            var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover o veículo?');                       
+            var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover o veículo?');                               
 
             dlg.result.then(function(){
                  removerDefinitivo(veiculo);
@@ -48,6 +49,21 @@ angular.module('mainApp')
             });           
         };
 
+        $scope.selecionarTodos = function(){
+             $scope.veiculos.forEach((veiculo) => {
+                veiculo.selected = $scope.todos;
+                $scope.isSelected = $scope.todos;
+             });
+            
+            /*for (let index = 0; index < $scope.veiculos.length; index++) {
+                veiculo = $scope.veiculos[index];
+                veiculo.selected=!veiculo.selected;
+                $scope.isSelected = veiculo.selected;
+                console.log($scope.veiculo);              
+            }*/
+
+            
+          };            
 
         function removerVeiculosDefinitivo(veiculos){
             var selecionados = veiculos.filter(function (veiculo) {
@@ -55,7 +71,12 @@ angular.module('mainApp')
             }).map(function (veiculo) {
                 return veiculo.id;
             });
-            VeiculoService.deletarVeiculos(selecionados).then(function (response) {
+
+            console.log(">>"+selecionados);
+            
+
+            VeiculoService.deletarVeiculos(selecionados).then(
+                function (response) {
                 var retorno = response.data;
                 listar();
                 $scope.isSelected = false;
@@ -87,18 +108,11 @@ angular.module('mainApp')
             })
         }
 
-
-        /*$scope.isSelected = function(veiculos){
-            console.log('Entrou');
-            var vs = veiculos.some(function (veiculo){
-                return veiculo.selected;
-            })
-            console.log(vs);
-        }*/
-
         $scope.ordenarPor=function(campo){            
             $scope.criterio = campo;
             $scope.direcao = !$scope.direcao;
         }
+
+       
         listar();
     });
